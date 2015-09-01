@@ -1,7 +1,9 @@
 package utilsGabLib.encode.utils;
 
+import utilsGabLib.encode.CharEncode;
+import utilsGabLib.exceptions.UtilsGabLibException;
 
-public abstract class UtilsUtf8 {
+public class UtilsUtf8 implements UtilsEncodeInterface {
 
 	private final static String utf8[] = { "\u0021", "\u00a2", "\u00a3", "\u00a4", "\u00a5",
 			"\u00a6", "\u00a7", "\u00a8", "\u00a9", "\u00aa", "\u00ab",
@@ -19,6 +21,7 @@ public abstract class UtilsUtf8 {
 			"\u00ef", "\u00f0", "\u00f1", "\u00f2", "\u00f3", "\u00f4",
 			"\u00f5", "\u00f6", "\u00f7", "\u00f8", "\u00f9", "\u00fa",
 			"\u00fb", "\u00fc", "\u00fd", "\u00fe", "\u00ff" };
+	
 	private final static String characters[] = { "!", "¢", "£", "¤", "¥", "¦", "§", "¨",
 			"©", "ª", "«", "¬", "®", "¯", "°", "±", "²", "³", "´", "µ", "¶",
 			"·", "¸", "¹", "º", "»", "¼", "½", "¾", "¿", "À", "Á", "Â", "Ã",
@@ -48,7 +51,8 @@ public abstract class UtilsUtf8 {
 
 	private final static int sizeArrays = characters.length;
 
-	public static String utf8CharsToXMLEntities(String s) {
+	@Override
+	public String charsToXMLEntities(String s) {
 		
 		for(int i=0;i<sizeArrays;i++){
 			s=s.replaceAll(utf8[i], xmlEntities[i]);
@@ -56,14 +60,19 @@ public abstract class UtilsUtf8 {
 		return s;
 	}
 	
-	public static String xmlEntitiesToUtf8Chars(String s){
+	@Override
+	public String xmlEntitiesToChars(String s){
 		for(int i=0;i<sizeArrays;i++){
 			s=s.replaceAll(xmlEntities[i], utf8[i]);
 		}
 		return s;
 	}
-	
-	
+
+	@Override
+	public byte[] encode(String original) throws UtilsGabLibException {
+		return original.getBytes(CharEncode.UTF8.toCharset());
+	}
+
 	// http://www.utf8-chartable.de/
 
 }

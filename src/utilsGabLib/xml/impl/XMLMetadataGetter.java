@@ -1,7 +1,5 @@
 package utilsGabLib.xml.impl;
 
-import java.nio.charset.StandardCharsets;
-
 import utilsGabLib.encode.CharEncode;
 import utilsGabLib.xml.interfaces.XMLMetadataGetterInterface;
 

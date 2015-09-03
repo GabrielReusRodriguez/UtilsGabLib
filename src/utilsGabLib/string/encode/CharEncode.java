@@ -1,4 +1,4 @@
-package utilsGabLib.encode;
+package utilsGabLib.string.encode;
 
 import java.nio.charset.Charset;
 

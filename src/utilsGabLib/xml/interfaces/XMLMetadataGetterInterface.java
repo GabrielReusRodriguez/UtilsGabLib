@@ -1,6 +1,6 @@
 package utilsGabLib.xml.interfaces;
 
-import utilsGabLib.encode.CharEncode;
+import utilsGabLib.string.encode.CharEncode;
 
 public interface XMLMetadataGetterInterface {
 

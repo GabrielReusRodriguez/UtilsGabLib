@@ -9,6 +9,7 @@ package utilsGabLib.exceptions;
  */
 public class UtilsGabLibException extends Exception {
 
+	private Exception exception;
 	/**
 	 * 
 	 */
@@ -21,6 +22,12 @@ public class UtilsGabLibException extends Exception {
 	 */
 	public UtilsGabLibException(String message) {
 		super(message);
+		// TODO Auto-generated constructor stub
+	}
+	
+	public UtilsGabLibException(String message,Exception e) {
+		super(message);
+		this.exception= e;
 		// TODO Auto-generated constructor stub
 	}
 
@@ -53,4 +60,8 @@ public class UtilsGabLibException extends Exception {
 		// TODO Auto-generated constructor stub
 	}
 
+	
+	public Exception getException(){
+		return this.exception;
+	}
 }

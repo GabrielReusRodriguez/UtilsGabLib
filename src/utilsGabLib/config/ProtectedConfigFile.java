@@ -10,8 +10,15 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.PBEParameterSpec;
 
+import org.apache.commons.codec.binary.Base64;
+
+import utilsGabLib.base64.Base64Coder;
+
+
+/*
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
+*/
 
 public class ProtectedConfigFile {
 
@@ -40,8 +47,12 @@ public class ProtectedConfigFile {
 
     private static String base64Encode(byte[] bytes) {
         // NB: This class is internal, and you probably should use another impl
-        return new BASE64Encoder().encode(bytes);
+        //return new BASE64Encoder().encode(bytes);
+    	//return new String(Base64.encodeBase64(bytes));
+    	
+    	return Base64Coder.encode(bytes);
     }
+
 
     private static String decrypt(String property) throws GeneralSecurityException, IOException {
         SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("PBEWithMD5AndDES");
@@ -53,7 +64,9 @@ public class ProtectedConfigFile {
 
     private static byte[] base64Decode(String property) throws IOException {
         // NB: This class is internal, and you probably should use another impl
-        return new BASE64Decoder().decodeBuffer(property);
+        //return new BASE64Decoder().decodeBuffer(property);
+    	//return Base64.decodeBase64(property);
+    	return Base64Coder.decode(property).getBytes();
     }
 
 }

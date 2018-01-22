@@ -1,7 +1,5 @@
 package utilsGabLib.string.encode;
 
-import java.io.UnsupportedEncodingException;
-
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.commons.lang3.text.translate.NumericEntityEscaper;
 

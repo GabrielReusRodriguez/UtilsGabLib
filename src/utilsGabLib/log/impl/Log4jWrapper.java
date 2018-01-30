@@ -1,12 +1,9 @@
 package utilsGabLib.log.impl;
 
-
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import utilsGabLib.log.interfaces.LogInterface;
-
-
 
 public class Log4jWrapper implements LogInterface{
 
